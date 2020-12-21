@@ -1,3 +1,9 @@
+/********************************************************************************************************'
+This Program is based on the general crime record keeping
+It consits of various fuctions and classes
+This is a object oriented based programing in C++ language
+This was done in Turbo C++
+ ********************************************************************************************************/
 #include <iostream>
 #include<conio.h>
 #include<stdio.h>
@@ -5,7 +11,7 @@
 #include<process.h>
 #include<string.h>
 #include<stdlib.h>
- 
+
 using namespace std;
 
 void del4police();
@@ -56,7 +62,6 @@ void crim_rec::disp()
     cout<<"\nAddress: "<<addrs;
     cout<<"\nCrime: "<<offense;
     cout<<"\nReward: "<<reward;
- 
 }
 void crim_rec::wtf()
 {
@@ -203,7 +208,6 @@ void menu1()
     cout<<"\nGood bye";
     getch();
 }
- 
 
 class details                       //To enter and input details to file
 {
@@ -213,14 +217,11 @@ class details                       //To enter and input details to file
 	unsigned long int phoneno;
 	unsigned long int idno;
 	int age;
- 
 	public:
         unsigned long int licenseno;
         void getdata();
         void putdata();
- 
 }hi;
- 
 void details :: getdata()
 {
 	cout<<"\nEnter the details:\n\t";
@@ -238,23 +239,20 @@ void details :: getdata()
 	cin>>phoneno;
 	system("pause");
 }
- 
 void details :: putdata()
 {
 cout<<"\nThe details:\n Name:"<<name<<"\n Emirates ID number:" <<idno<<"\n Phone number :"<<phoneno<<"\n License number:" <<licenseno;
 }
- 
+
 class po   			//To Enter the police details
 {
 	int blackpoint;
 	char finename[30];
 	unsigned int money;
 	unsigned int tmoney;
- 
 	int tblackpoint;
 	/*24 black point per yr(3month license taken for 1 month)
 	  24 black point u get thrice(yr) then license taken */
- 
 	public:
 	unsigned long int licensen;
 	void cal()
@@ -266,7 +264,6 @@ class po   			//To Enter the police details
 	void getpoints();
 	void putpoints();
 }po1;
-
 void po :: gettogether()
 {
 	cout<<"Enter the blackpoints:";
@@ -277,7 +274,6 @@ void po :: gettogether()
 	cin>>money;
 	cal();
 }
- 
 void po :: getpoints()
 {
 	int a;
@@ -300,13 +296,11 @@ void po :: getpoints()
 			break;
 	}
 }
-
 void po :: putpoints()
 {
 	cout<<"\n The Black points : "<<tblackpoint<<" \n Your violations:" <<finename<<"\n Total fine : AED "<<tmoney;
 }
- 
- 
+
 void file()      			 //to open the file
 {
 	int n,i;
@@ -324,7 +318,6 @@ void file()      			 //to open the file
 	}
 	fout.close();
 }
- 
 void searchbylisenceno()
 {
 	fstream fstud("hello.txt",ios::in);
@@ -354,8 +347,6 @@ void searchbylisenceno()
 	fstud.close();
 	fst.close();
 }
- 
- 
 void newblack()
 {
 	fstream fst("police.txt",ios::out|ios::app);
@@ -373,7 +364,6 @@ void newblack()
 	}
 	fst.close();
 }
- 
 void police()
 {
 	int pincode,c;
@@ -416,7 +406,6 @@ void police()
 	}
 	system("pause");
 }
- 
 void del4police()
 {
 	ifstream fstud("police.txt");
@@ -435,7 +424,6 @@ void del4police()
 	remove("police.txt");
 	rename("temp.txt","police.txt");
 }
- 
 void del4details()
 {
 	ifstream fstud("hello.txt");
@@ -454,7 +442,6 @@ void del4details()
 	remove("hello.txt");
 	rename("temp.txt","hello.txt");
 }
- 
 void update4police()
 {
 	fstream fstud("police.txt",ios::in);
@@ -479,7 +466,6 @@ void update4police()
 	rename("temp.txt","police.txt");
 	system("pause");
 }
- 
 void update4details()
 {
 	fstream fstud("hello.txt",ios::in);
@@ -504,7 +490,6 @@ void update4details()
 	rename("temp.txt","hello.txt");
 	system("pause");
 }
- 
 void menuu()
 {
 	int z;
@@ -530,7 +515,7 @@ void menuu()
 	cout<<"\nGood bye";
 	getch();
 }
- 
+
 void main()
 {       
     clrscr();
