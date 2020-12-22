@@ -4,7 +4,7 @@ It consits of various fuctions and classes
 This is a object oriented based programing in C++ language
 This was done in Turbo C++
  ********************************************************************************************************/
-#include <iostream>
+#include<iostream.h>
 #include<conio.h>
 #include<stdio.h>
 #include<fstream.h>
