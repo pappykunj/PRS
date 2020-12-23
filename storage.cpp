@@ -371,7 +371,7 @@ void police()
 	cin>>pincode;
 	if(pincode==1234)
 	{
-		cout<<"\nMenu\n1.Person's details \n2.Black points";
+		cout<<"\nMenu\n1.Person's details\n2.Black points";
 		cout<<"\n3.Delete\n4.Modify\nEnter the choice:";
 		cin>>c;
 		switch(c)
@@ -402,7 +402,7 @@ void police()
 	}
 	else
 	{
-		cout<<"Alert :O ..INTRUDER!!!!!!!!!!!”";
+		cout<<"Alert :O ..INTRUDER!!!";
 	}
 	system("pause");
 }
