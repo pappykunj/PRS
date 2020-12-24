@@ -5,12 +5,13 @@ This is a object oriented based programing in C++ language
 This was done in Turbo C++
  ********************************************************************************************************/
 #include<iostream.h>
-#include<conio.h>
 #include<stdio.h>
 #include<fstream.h>
-#include<process.h>
 #include<string.h>
 #include<stdlib.h>
+
+//#include<conio.h>
+//#include<process.h>
 
 using namespace std;
 
@@ -518,7 +519,7 @@ void menuu()
 
 void main()
 {       
-    clrscr();
+    system("CLS");
 	int q;
 	cout<<"********WELCOME TO RCO BASE**********\n";
 	system("pause");
