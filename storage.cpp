@@ -254,7 +254,7 @@ class po   			//To Enter the police details
 	int tblackpoint;
 	/*24 black point per yr(3month license taken for 1 month)
 	  24 black point u get thrice(yr) then license taken */
-	public:
+    public:
 	unsigned long int licensen;
 	void cal()
 	{
