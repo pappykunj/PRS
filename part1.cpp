@@ -1,7 +1,7 @@
 #include <iostream>
 #include<conio.h>
 #include<stdio.h>
-#include<fstream.h>
+#include<fstream>
 #include<process.h>
 #include<string.h>
 #include<stdlib.h>
@@ -140,7 +140,7 @@ void crim_rec::mod()
                         break;
                 case 5: gets(fathr_name);
                         break;
-                case 6: gets(addrs)
+                case 6: gets(addrs);
                         break;
                 case 7: gets(offense);
                         break;

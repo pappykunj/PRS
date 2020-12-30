@@ -4,9 +4,9 @@ It consits of various fuctions and classes
 This is a object oriented based programing in C++ language
 This was done in Turbo C++
  ********************************************************************************************************/
-#include<iostream.h>
+#include<iostream>
 #include<stdio.h>
-#include<fstream.h>
+#include<fstream>
 #include<string.h>
 #include<stdlib.h>
 
@@ -152,7 +152,7 @@ void crim_rec::mod()
                         break;
                 case 5: gets(fathr_name);
                         break;
-                case 6: gets(addrs)
+                case 6: gets(addrs);
                         break;
                 case 7: gets(offense);
                         break;
@@ -207,7 +207,6 @@ void menu1()
         cin>>choice;
     }while(choice=='y');
     cout<<"\nGood bye";
-    getch();
 }
 
 class details                       //To enter and input details to file
@@ -514,10 +513,9 @@ void menuu()
         cin>>choice;
 	}while(choice=='y');
 	cout<<"\nGood bye";
-	getch();
 }
 
-void main()
+int main()
 {       
     system("CLS");
 	int q;
@@ -540,5 +538,5 @@ void main()
 		default:cout<<"Wrong Choices!!!";
 			exit(0);
 	}
-	getch();
+	return 0;
 }

@@ -4,10 +4,10 @@ It consits of various fuctions and classes
 This is a object oriented based programing in C++ language
 This was done in Turbo C++
  ********************************************************************************************************/
-#include <iostream>
+#include<iostream>
 #include<conio.h>
 #include<stdio.h>
-#include<fstream.h>
+#include<fstream>
 #include<process.h>
 #include<string.h>
 #include<stdlib.h>
@@ -19,7 +19,7 @@ void del4details();
 void update4police();
 void update4details();
 
-class details                       //To enter and input details to file
+class information                       //To input general details
 {
 	char name[20];
 	char address[20];
@@ -32,7 +32,7 @@ class details                       //To enter and input details to file
         void getdata();
         void putdata();
 }hi;
-void details :: getdata()
+void information :: getdata()   
 {
 	cout<<"\nEnter the details:\n\t";
 	cout<<"Enter the name:";
@@ -49,32 +49,34 @@ void details :: getdata()
 	cin>>phoneno;
 	system("pause");
 }
-void details :: putdata()
+void information :: putdata()
 {
 cout<<"\nThe details:\n Name:"<<name<<"\n Emirates ID number:" <<idno<<"\n Phone number :"<<phoneno<<"\n License number:" <<licenseno;
 }
 
-class po   			//To Enter the police details
+class info_parking 			//Class to Add Information an the parking
 {
-	int blackpoint;
+	int blackpoint, total_blackpoint;
 	char finename[30];
-	unsigned int money;
-	unsigned int tmoney;
-	int tblackpoint;
-	/*24 black point per yr(3month license taken for 1 month)
-	  24 black point u get thrice(yr) then license taken */
+	unsigned int money, total_money;
+	/*
+    The Functioning rules on Black points:
+    >> 24 black point per year is possible
+    >> 24
+    >> 24 black point you get thrice(yr) then license taken 
+    */
 	public:
 	unsigned long int licensen;
 	void cal()
 	{
-		tmoney = tmoney+money;
-		tblackpoint = tblackpoint+blackpoint;
+		total_money = total_money+money;
+		total_blackpoint = total_blackpoint+blackpoint;
 	}
 	void gettogether();
 	void getpoints();
 	void putpoints();
 }po1;
-void po :: gettogether()
+void info_parking :: gettogether()
 {
 	cout<<"Enter the blackpoints:";
 	cin>>blackpoint;
@@ -84,7 +86,7 @@ void po :: gettogether()
 	cin>>money;
 	cal();
 }
-void po :: getpoints()
+void info_parking :: getpoints()
 {
 	int a;
 	cout<<"Choose your option: \n 1.Black points\n 2.Fine payment\n 3.Together\nEnter the choice";
@@ -200,11 +202,11 @@ void police()
 				break;
 			case 4: cout<<"\nMenu\n1.Modify details\n2.Modify black points\nEnter your choice:";
 				cin>>c;
-				system("pause");
+				system("read -p 'Press Enter to continue...' var"); 
 				if(c==1)
 				update4details();
 				else
-				update4police();
+		=		update4police();
 				break;
 			default:cout<<"Wrong entry";
 				break;
