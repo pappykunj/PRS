@@ -83,7 +83,7 @@ void crim_rec::search()
     ifile.read((char*)&c, sizeof(c));
     while(ifile)
     {
-        if (strcmpi(m, name)==0)
+        if (strcmp(m, name)==0)
             disp();
         ifile.read((char*)&c, sizeof(c));
     }
@@ -102,7 +102,7 @@ void crim_rec::del()
     ifile.read((char*)&c, sizeof(c));
     while(ifile)
     {
-        if (strcmpi(b, name))
+        if (strcmp(b, name))
             ofile.write((char*)&c, sizeof(c));
         ifile.read((char*)&c, sizeof(c));
     }
@@ -124,7 +124,7 @@ void crim_rec::mod()
     int a;
     while(! f.eof())
     {
-        if (!strcmpi(d, name))
+        if (!strcmp(d, name))
         {
             puts("\nPress 1 to change name\nPress 2 to change sex\nPress 3 to change date of birth\nPress 4 to change blood group\nPress 5 to change father's name\nPress 6 to change address\nPress 7 to change crime committed\nPress 8 to change reward on criminal\n");
             cin>>p;

@@ -14,11 +14,6 @@ This was done in Turbo C++
 
 using namespace std;
 
-void del4police();
-void del4details();
-void update4police();
-void update4details();
-
 class information                       //To input general details
 {
 	char name[20];
@@ -31,7 +26,10 @@ class information                       //To input general details
         unsigned long int licenseno;
         void getdata();
         void putdata();
-}hi;
+		void update();
+		void del();
+		void file();
+}d;
 void information :: getdata()   
 {
 	cout<<"\nEnter the details:\n\t";
@@ -52,6 +50,63 @@ void information :: getdata()
 void information :: putdata()
 {
 cout<<"\nThe details:\n Name:"<<name<<"\n Emirates ID number:" <<idno<<"\n Phone number :"<<phoneno<<"\n License number:" <<licenseno;
+}
+void information :: update()
+{
+	int lno;
+	fstream fstud("hello.txt",ios::in);
+	fstream ftemp("temp.txt",ios::out);	
+	cout<<"\nEnter the license number to be updated:";
+	cin>>lno;
+	while(fstud)
+	{
+		if(licenseno==lno)
+		{
+			getdata();
+			ftemp.write((char*)&d,sizeof(d));
+		}
+		else
+		ftemp.write((char*)&d,sizeof(d));
+	}
+	fstud.close();
+	ftemp.close();
+	remove("hello.txt");
+	rename("temp.txt","hello.txt");
+	system("pause");
+}
+void information :: del()
+{
+	int lno;
+	ifstream fstud("hello.txt");
+	ofstream ftemp("temp.dat");
+	cout<<"\nEnter license number to be deleted:";
+	cin>>lno;
+	while(fstud.read((char*)&d,sizeof(d)))
+	{
+		if(d.licenseno!= lno)
+		ftemp.write((char*)&d,sizeof(d));
+	}
+	fstud.close();
+	ftemp.close();
+	remove("hello.txt");
+	rename("temp.txt","hello.txt");
+}
+void information :: file()      			 //to open the file
+{
+	int n,i;
+	ofstream fout;
+	fout.open("hello.txt",ios::out|ios::app);
+	if(!fout)
+	cout<<"File can't open";
+	system ("pause");
+	cout<<"Enter the total no of people:";
+	cin>>n;
+	for(i=0;i<n;i++)
+	{
+		getdata();
+		fout.write((char*)&d,sizeof(d));
+	}
+	fout.close();
 }
 
 class info_parking 			//Class to Add Information an the parking
@@ -75,7 +130,12 @@ class info_parking 			//Class to Add Information an the parking
 	void gettogether();
 	void getpoints();
 	void putpoints();
-}po1;
+	void Update();
+	void Del();
+	void police();
+	void searchbylisenceno();
+	void newblack();
+}p;
 void info_parking :: gettogether()
 {
 	cout<<"Enter the blackpoints:";
@@ -108,165 +168,22 @@ void info_parking :: getpoints()
 			break;
 	}
 }
-void po :: putpoints()
+void info_parking :: putpoints()
 {
-	cout<<"\n The Black points : "<<tblackpoint<<" \n Your violations:" <<finename<<"\n Total fine : AED "<<tmoney;
+	cout<<"\n The Black points : "<<total_blackpoint<<" \n Your violations:" <<finename<<"\n Total fine : AED "<<total_money;
 }
-
-void file()      			 //to open the file
+void info_parking :: Update()
 {
-	int n,i;
-	ofstream fout;
-	fout.open("hello.txt",ios::out|ios::app);
-	if(!fout)
-	cout<<"File can't open";
-	system ("pause");
-	cout<<"Enter the total no of people:";
-	cin>>n;
-	for(i=0;i<n;i++)
-	{
-		hi.getdata();
-		fout.write((char*)&hi,sizeof(hi));
-	}
-	fout.close();
-}
-void searchbylisenceno()
-{
-	fstream fstud("hello.txt",ios::in);
-	fstream fst("police.txt",ios::in);
-	details s1;
-	po p1;
-	int found=0;
-	unsigned long int lno;
-	cout<<"\nEnter the license number:";
-	cin>>lno;
-	while(fstud.read((char*)&s1,sizeof(s1)))
-	if(s1.licenseno==lno)
-	{
-		s1.putdata();
-		found=1;
-		break;
-	}
-	while(fst.read((char*)&p1,sizeof(p1)))
-	if(p1.licensen == lno)
-	{
-		p1.putpoints();
-		found=2;
-		break;
-	}
-	if(found==0)
-	cout<<"\n License number not found";
-	fstud.close();
-	fst.close();
-}
-void newblack()
-{
-	fstream fst("police.txt",ios::out|ios::app);
-	po p1;
-	int i,n;
-	if(!fst)
-	cout<<"\nfile can't open";
-	system("pause");
-	cout<<"\nEnter the total number of entries :";
-	cin>>n;
-	for(i=0;i>n;++i)
-	{
-		p1.getpoints();
-		fst.write((char*)&p1,sizeof(p1));
-	}
-	fst.close();
-}
-void police()
-{
-	int pincode,c;
-	cout<<"\nEnter the pincode:";
-	cin>>pincode;
-	if(pincode==1234)
-	{
-		cout<<"\nMenu\n1.Person's details \n2.Black points";
-		cout<<"\n3.Delete\n4.Modify\nEnter the choice:";
-		cin>>c;
-		switch(c)
-		{
-			case 1: file();
-				break;
-			case 2: newblack();
-				break;
-			case 3: cout<<"\nMenu\n1.Delete details\n2.Delete black points\nEnter the choice:";
-				cin>>c;
-				system("pause");
-				if(c==1)
-				del4details();
-				else
-				del4police();
-				break;
-			case 4: cout<<"\nMenu\n1.Modify details\n2.Modify black points\nEnter your choice:";
-				cin>>c;
-				system("read -p 'Press Enter to continue...' var"); 
-				if(c==1)
-				update4details();
-				else
-		=		update4police();
-				break;
-			default:cout<<"Wrong entry";
-				break;
-		}
-	}
-	else
-	{
-		cout<<"Alert :O ..INTRUDER!!!!!!!!!!!”";
-	}
-	system("pause");
-}
-void del4police()
-{
-	ifstream fstud("police.txt");
-	po p;
-	ofstream ftemp("temp.txt");
 	int lno;
-	cout<<"\n Enter license number to be deleted: ";
-	cin>>lno;
-	while(fstud.read((char*)&p,sizeof(p)))
-	{
-		if(p.licensen!= lno)
-		ftemp.write((char*)&p,sizeof(p));
-	}
-	fstud.close();
-	ftemp.close();
-	remove("police.txt");
-	rename("temp.txt","police.txt");
-}
-void del4details()
-{
-	ifstream fstud("hello.txt");
-	details d;
-	ofstream ftemp("temp.dat");
-	int lno;
-	cout<<"\nEnter license number to be deleted:";
-	cin>>lno;
-	while(fstud.read((char*)&d,sizeof(d)))
-	{
-		if(d.licenseno!= lno)
-		ftemp.write((char*)&d,sizeof(d));
-	}
-	fstud.close();
-	ftemp.close();
-	remove("hello.txt");
-	rename("temp.txt","hello.txt");
-}
-void update4police()
-{
 	fstream fstud("police.txt",ios::in);
 	fstream ftemp("temp.txt",ios::out);
-	int lno;
-	po p;
 	cout<<"\nEnter the license number to be updated:";
 	cin>>lno;
 	while(fstud.read((char*)&p,sizeof(p)))
 	{
-		if(p.licensen==lno)
+		if(licensen==lno)
 		{
-			p.gettogether();
+			gettogether();
 			ftemp.write((char*)&p,sizeof(p));
 		}
 		else
@@ -278,30 +195,109 @@ void update4police()
 	rename("temp.txt","police.txt");
 	system("pause");
 }
-void update4details()
+void info_parking :: Del()
 {
-	fstream fstud("hello.txt",ios::in);
-	fstream ftemp("temp.txt",ios::out);
 	int lno;
-	details d;
-	cout<<"\nEnter the license number to be updated:";
+	ifstream fstud("police.txt");
+	ofstream ftemp("temp.txt");
+	cout<<"\n Enter license number to be deleted: ";
 	cin>>lno;
-	while(fstud.read((char*)&d,sizeof(d)))
+	while(fstud.read((char*)&p,sizeof(p)))
 	{
-		if(d.licenseno==lno)
-		{
-			d.getdata();
-			ftemp.write((char*)&d,sizeof(d));
-		}
-		else
-		ftemp.write((char*)&d,sizeof(d));
+		if(licensen!= lno)
+		ftemp.write((char*)&p,sizeof(p));
 	}
 	fstud.close();
 	ftemp.close();
-	remove("hello.txt");
-	rename("temp.txt","hello.txt");
+	remove("police.txt");
+	rename("temp.txt","police.txt");
+}
+void info_parking :: police()
+{
+	int pincode,c;
+	cout<<"\nEnter the pincode:";
+	cin>>pincode;
+	if(pincode==1234)
+	{
+		cout<<"\nMenu\n1.Person's details \n2.Black points";
+		cout<<"\n3.Delete\n4.Modify\nEnter the choice:";
+		cin>>c;
+		switch(c)
+		{
+			case 1: d.file();
+				break;
+			case 2: newblack();
+				break;
+			case 3: cout<<"\nMenu\n1.Delete details\n2.Delete black points\nEnter the choice:";
+				cin>>c;
+				system("pause");
+				if(c==1)
+					d.del();
+				else
+					Del();
+				break;
+			case 4: cout<<"\nMenu\n1.Modify details\n2.Modify black points\nEnter your choice:";
+				cin>>c;
+				system("pause"); 
+				if(c==1)
+					d.update();
+				else
+					Update();
+				break;
+			default:cout<<"Wrong entry";
+				break;
+		}
+	}
+	else
+	{
+		cout<<"Alert :O ..INTRUDER!!!!!!!!!!!”";
+	}
 	system("pause");
 }
+void info_parking :: searchbylisenceno()
+{
+	int found=0;
+	unsigned long int lno;
+	fstream fstud("hello.txt",ios::in);
+	fstream fst("police.txt",ios::in);
+	cout<<"\nEnter the license number:";
+	cin>>lno;
+	while(fstud.read((char*)&d,sizeof(d)))
+	if(d.licenseno==lno)
+	{
+		d.putdata();
+		found=1;
+		break;
+	}
+	while(fst.read((char*)&p,sizeof(p)))
+	if(licensen == lno)
+	{
+		putpoints();
+		found=2;
+		break;
+	}
+	if(found==0)
+	cout<<"\n License number not found";
+	fstud.close();
+	fst.close();
+}
+void info_parking :: newblack()
+{
+	fstream fst("police.txt",ios::out|ios::app);
+	int i,n;
+	if(!fst)
+	cout<<"\nfile can't open";
+	system("pause");
+	cout<<"\nEnter the total number of entries :";
+	cin>>n;
+	for(i=0;i>n;++i)
+	{
+		getpoints();
+		fst.write((char*)&p,sizeof(p));
+	}
+	fst.close();
+}
+
 int main()
 {
 	int z;
@@ -313,9 +309,9 @@ int main()
         
         switch(z)
         {
-            case 1:police();
+            case 1:p.police();
                 break;
-            case 2:searchbylisenceno();
+            case 2:p.searchbylisenceno();
                 break;
             default:cout<<"Sorry Wrong Input";
                 break;
@@ -328,28 +324,3 @@ int main()
 	return 0;
 }
 
-/*void main()
-{       
-    clrscr();
-	int q;
-	cout<<"********WELCOME TO RCO BASE**********\n";
-	system("pause");
-	cout<<"\n Record Of Crimes And Offences";
-	cout<<"\nMenu\n 1.Crimes\n 2.Public offences\n 3.Complains \n4.Exit";
-	cout<<"\n Enter your choice: ";
-	cin>>q;
-	switch(q)
-	{
-		case 1: menu1();
-			break;
-		case 2: menuu();
-			break;
-		case 3: cout<<"to complain box";
-			break;
-		case 4: cout<<"GoodBye";
-			exit(0);
-		default:cout<<"Wrong Choices!!!";
-			exit(0);
-	}
-	getch();
-}*/
