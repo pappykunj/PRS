@@ -33,23 +33,22 @@ class information                       //To input general details
 void information :: getdata()   
 {
 	cout<<"\nEnter the details:\n\t";
-	cout<<"Enter the name:";
-	gets(name);
-	cout<<"\n\t Enter the license no:";
+	cout<<"Enter the name: ";
+	cin>>name;
+	cout<<"\tEnter the license no: ";
 	cin>>licenseno;
-	cout<<"\n\t Enter your occupation:";
-	gets(occupation);
-	cout<<"\n\t Enter your age:";
+	cout<<"\tEnter your occupation: ";
+	cin>>occupation;
+	cout<<"\tEnter your age: ";
 	cin>>age;
-	cout<<"\t The Emirates ID no:";
+	cout<<"\tThe Emirates ID no: ";
 	cin>>idno;
-	cout<<"\t Enter your phone no:";
+	cout<<"\tEnter your phone no: ";
 	cin>>phoneno;
-	system("pause");
 }
 void information :: putdata()
 {
-cout<<"\nThe details:\n Name:"<<name<<"\n Emirates ID number:" <<idno<<"\n Phone number :"<<phoneno<<"\n License number:" <<licenseno;
+cout<<"\nThe details:\n Name: "<<name<<"\n Emirates ID number: " <<idno<<"\n Phone No.: "<<phoneno<<"\n License No.: " <<licenseno;
 }
 void information :: update()
 {
@@ -98,8 +97,7 @@ void information :: file()      			 //to open the file
 	fout.open("hello.txt",ios::out|ios::app);
 	if(!fout)
 	cout<<"File can't open";
-	system ("pause");
-	cout<<"Enter the total no of people:";
+	cout<<"\nEnter the total no of people:";
 	cin>>n;
 	for(i=0;i<n;i++)
 	{
@@ -215,12 +213,12 @@ void info_parking :: Del()
 void info_parking :: police()
 {
 	int pincode,c;
-	cout<<"\nEnter the pincode:";
+	cout<<"\nEnter the pincode: ";
 	cin>>pincode;
 	if(pincode==1234)
 	{
 		cout<<"\nMenu\n1.Person's details \n2.Black points";
-		cout<<"\n3.Delete\n4.Modify\nEnter the choice:";
+		cout<<"\n3.Delete\n4.Modify\nEnter the choice: ";
 		cin>>c;
 		switch(c)
 		{
@@ -230,7 +228,6 @@ void info_parking :: police()
 				break;
 			case 3: cout<<"\nMenu\n1.Delete details\n2.Delete black points\nEnter the choice:";
 				cin>>c;
-				system("pause");
 				if(c==1)
 					d.del();
 				else
@@ -238,7 +235,6 @@ void info_parking :: police()
 				break;
 			case 4: cout<<"\nMenu\n1.Modify details\n2.Modify black points\nEnter your choice:";
 				cin>>c;
-				system("pause"); 
 				if(c==1)
 					d.update();
 				else
@@ -252,7 +248,6 @@ void info_parking :: police()
 	{
 		cout<<"Alert :O ..INTRUDER!!!!!!!!!!!”";
 	}
-	system("pause");
 }
 void info_parking :: searchbylisenceno()
 {
@@ -304,7 +299,7 @@ int main()
 	char choice;
 	do
 	{
-        cout<<"Menu\n 1. General\n2. Guest\nEnter your choice:";
+        cout<<"Menu\n1. General\n2. Guest\nEnter your choice:";
         cin>>z;
         
         switch(z)
