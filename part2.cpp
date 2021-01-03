@@ -48,7 +48,7 @@ void information :: getdata()
 }
 void information :: putdata()
 {
-cout<<"\nThe details:\n Name: "<<name<<"\n Emirates ID number: " <<idno<<"\n Phone No.: "<<phoneno<<"\n License No.: " <<licenseno;
+cout<<"\nThe details: \n Name: "<<name<<"\n Emirates ID number: " <<idno<<"\n Phone No.: "<<phoneno<<"\n License No.: " <<licenseno;
 }
 void information :: update()
 {
