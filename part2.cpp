@@ -139,7 +139,7 @@ void info_parking :: gettogether()
 	cout<<"Enter the blackpoints:";
 	cin>>blackpoint;
 	cout<<"Enter the vilolation:";
-	gets(finename);
+	cin>>finename;
 	cout<<"Enter the amount:";
 	cin>>money;
 	cal();
@@ -155,7 +155,7 @@ void info_parking :: getpoints()
 			cal();
 			break;
 		case 2: cout<<"Enter the violation: ";
-			gets(finename);
+			cin>>finename;
 			cout<<"Enter the amount for fine payment:";
 			cin>>money;
 			cal();
@@ -168,7 +168,7 @@ void info_parking :: getpoints()
 }
 void info_parking :: putpoints()
 {
-	cout<<"\n The Black points : "<<total_blackpoint<<" \n Your violations:" <<finename<<"\n Total fine : AED "<<total_money;
+	cout<<"\n The Black points: "<<total_blackpoint<<" \n Your violations:" <<finename<<"\n Total fine: AED "<<total_money;
 }
 void info_parking :: Update()
 {
