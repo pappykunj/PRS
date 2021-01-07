@@ -147,16 +147,16 @@ void info_parking :: gettogether()
 void info_parking :: getpoints()
 {
 	int a;
-	cout<<"Choose your option: \n 1.Black points\n 2.Fine payment\n 3.Together\nEnter the choice";
+	cout<<"Choose your option: \n1.Black points\n2.Fine payment\n3.Together\nEnter the choice";
 	switch(a)
 	{
-		case 1: cout<<"Enter the total black points:";
+		case 1: cout<<"Enter the total black points: ";
 			cin>>blackpoint;
 			cal();
 			break;
 		case 2: cout<<"Enter the violation: ";
 			cin>>finename;
-			cout<<"Enter the amount for fine payment:";
+			cout<<"Enter the amount for fine payment: ";
 			cin>>money;
 			cal();
 			break;
@@ -175,7 +175,7 @@ void info_parking :: Update()
 	int lno;
 	fstream fstud("police.txt",ios::in);
 	fstream ftemp("temp.txt",ios::out);
-	cout<<"\nEnter the license number to be updated:";
+	cout<<"\nEnter the license number to be updated: ";
 	cin>>lno;
 	while(fstud.read((char*)&p,sizeof(p)))
 	{
@@ -255,8 +255,8 @@ void info_parking :: searchbylisenceno()
 	unsigned long int lno;
 	fstream fstud("hello.txt",ios::in);
 	fstream fst("police.txt",ios::in);
-	cout<<"\nEnter the license number:";
-	cin>>lno;
+	cout<<"\nEnter the license number: ";
+	cin>>lno; 
 	while(fstud.read((char*)&d,sizeof(d)))
 	if(d.licenseno==lno)
 	{
@@ -272,7 +272,7 @@ void info_parking :: searchbylisenceno()
 		break;
 	}
 	if(found==0)
-	cout<<"\n License number not found";
+	cout<<"\nLicense number not found\n";
 	fstud.close();
 	fst.close();
 }
