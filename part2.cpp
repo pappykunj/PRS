@@ -1,8 +1,7 @@
 /********************************************************************************************************'
-This Program is based on the general crime record keeping
+This Program is based on the parking fines record keeping
 It consits of various fuctions and classes
 This is a object oriented based programing in C++ language
-This was done in Turbo C++
  ********************************************************************************************************/
 #include<iostream>
 #include<conio.h>
