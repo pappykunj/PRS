@@ -312,7 +312,7 @@ int main()
                 break;
         }
         system("pause");
-        cout<<"\nDo you want to in main menu continue? (y/n)\n";
+        cout<<"\nDo you want to in main menu continue?(y/n)... \n";
         cin>>choice;
 	}while(choice=='y');
 	cout<<"\nGood bye";
