@@ -70,7 +70,6 @@ void information :: update()
 	ftemp.close();
 	remove("hello.txt");
 	rename("temp.txt","hello.txt");
-	system("pause");
 }
 void information :: del()
 {
@@ -190,7 +189,6 @@ void info_parking :: Update()
 	ftemp.close();
 	remove("police.txt");
 	rename("temp.txt","police.txt");
-	system("pause");
 }
 void info_parking :: Del()
 {
@@ -260,19 +258,19 @@ void info_parking :: searchbylisenceno()
 	cout<<"\nEnter the license number: ";
 	cin>>lno; 
 	while(fstud.read((char*)&d,sizeof(d)))
-	if(d.licenseno==lno)
-	{
-		d.putdata();
-		found=1;
-		break;
-	}
+		if(d.licenseno==lno)
+		{
+			d.putdata();
+			found=1;
+			break;
+		}
 	while(fst.read((char*)&p,sizeof(p)))
-	if(licensen == lno)
-	{
-		putpoints();
-		found=2;
-		break;
-	}
+		if(licensen == lno)
+		{
+			putpoints();
+			found=2;
+			break;
+		}
 	if(found==0)
 	cout<<"\nLicense number not found\n";
 	fstud.close();
@@ -283,8 +281,7 @@ void info_parking :: newblack()
 	fstream fst("police.txt",ios::out|ios::app);
 	int i,n;
 	if(!fst)
-	cout<<"\nfile can't open";
-	system("pause");
+		cout<<"\nFile can't open";
 	cout<<"\nEnter the total number of entries :";
 	cin>>n;
 	for(i=0;i>n;++i)
@@ -303,7 +300,6 @@ int main()
 	{
         cout<<"Menu\n1. General\n2. Guest\nEnter your choice:";
         cin>>z;
-        
         switch(z)
         {
             case 1:p.police();
