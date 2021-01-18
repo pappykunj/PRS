@@ -82,7 +82,7 @@ void information :: del()
 	while(fstud.read((char*)&d,sizeof(d)))
 	{
 		if(d.licenseno!= lno)
-		ftemp.write((char*)&d,sizeof(d));
+			ftemp.write((char*)&d,sizeof(d));
 	}
 	fstud.close();
 	ftemp.close();
@@ -228,7 +228,10 @@ void info_parking :: police()
 			case 3: cout<<"\nMenu\n1.Delete details\n2.Delete black points\nEnter the choice:";
 				cin>>c;
 				if(c==1)
+				{
 					d.del();
+					Del();
+				}
 				else
 					Del();
 				break;
