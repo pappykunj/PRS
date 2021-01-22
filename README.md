@@ -13,6 +13,3 @@ Storage of Records
 > Both information and info_park classes used to store crimes under parking and license cards.
 
 >These programs are based on File Handling and Object Oriented Programming.
-
-
-

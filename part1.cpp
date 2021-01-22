@@ -96,7 +96,7 @@ void crim_rec::del()
     ifile.open("CBI", ios::app);
     ofstream ofile;
     ofile.open("new", ios::app);
-    puts("Enter the name of the criminal whose records you want to del");
+    puts("Enter the name of the criminal whose records you want to deleted: ");
     gets(b);
     ifile.seekg (0, ios::beg);
     ifile.read((char*)&c, sizeof(c));
@@ -115,7 +115,7 @@ void crim_rec::mod()
 {
     char d[20];
     int p;
-    puts("\nEnter name of criminal whose record you want to modify\n");
+    puts("\nEnter name of criminal whose record you want to modify: ");
     gets(d);
     fstream f;
     f.open("CBI", ios::in|ios::out);
