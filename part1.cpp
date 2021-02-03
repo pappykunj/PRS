@@ -29,7 +29,7 @@ void crim_rec::get()
     cin>>gender;
     puts("\nEnter Date of Birth:");
     gets(dob);
-    puts("\nEnter blood group (Ap/An/Bp/Bn/ABp/ABn/Op/On):");
+    puts("\nEnter blood group (Ap/An/Bp/Bn/ABp/ABn/Op/On): ");
     gets(blood);
     puts("\nEnter father's name:");
     gets(fathr_name);
