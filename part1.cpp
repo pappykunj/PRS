@@ -25,7 +25,7 @@ void crim_rec::get()
 {
     puts("\nEnter name of criminal:");
     gets(name);
-    puts("\nGender (M/F):");
+    puts("\nGender(M/F):");
     cin>>gender;
     puts("\nEnter Date of Birth:");
     gets(dob);
