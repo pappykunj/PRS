@@ -47,7 +47,7 @@ void information :: getdata()
 }
 void information :: putdata()
 {
-cout<<"\nThe details: \n Name: "<<name<<"\n Emirates ID number: " <<idno<<"\n Phone No.: "<<phoneno<<"\n License No.: " <<licenseno;
+cout<<"\nThe details: \n Name: "<<name<<"\n Emirates ID number: " <<idno<<"\n Phone No.: "<<phoneno<<"\n License No.: " <<licenseno<<endl;
 }
 void information :: update()
 {
@@ -166,7 +166,7 @@ void info_parking :: getpoints()
 }
 void info_parking :: putpoints()
 {
-	cout<<"\n The Black points: "<<total_blackpoint<<" \n Your violations:" <<finename<<"\n Total fine: AED "<<total_money;
+	cout<<"\n The Black points: "<<total_blackpoint<<" \n Your violations:" <<finename<<"\n Total fine: AED "<<total_money<<endl;
 }
 void info_parking :: Update()
 {
@@ -298,7 +298,7 @@ int main()
 	char choice;
 	do
 	{
-        cout<<"Menu\n1. General\n2. Guest\nEnter your choice:";
+        cout<<"Menu\n1. General\n2. Guest\n3. Exit\nEnter your choice:";
         cin>>z;
         switch(z)
         {
@@ -306,6 +306,7 @@ int main()
                 break;
             case 2:p.searchbylisenceno();
                 break;
+			case 3: exit(0);
             default:cout<<"Sorry Wrong Input";
                 break;
         }
