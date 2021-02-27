@@ -25,11 +25,11 @@ void crim_rec::get()
 {
     puts("\nEnter name of criminal:");
     gets(name);
-    puts("\nGender (M/F):");
+    puts("\nGender(M/F):");
     cin>>gender;
     puts("\nEnter Date of Birth:");
     gets(dob);
-    puts("\nEnter blood group (Ap/An/Bp/Bn/ABp/ABn/Op/On):");
+    puts("\nEnter blood group (Ap/An/Bp/Bn/ABp/ABn/Op/On): ");
     gets(blood);
     puts("\nEnter father's name:");
     gets(fathr_name);
