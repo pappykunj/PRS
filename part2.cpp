@@ -298,7 +298,7 @@ int main()
 	char choice;
 	do
 	{
-        cout<<"Menu\n1. General\n2. Guest\n3. Exit\nEnter your choice:";
+        cout<<"Menu\n1. General\n2. Guest\n3. Exit\nEnter your choice: ";
         cin>>z;
         switch(z)
         {
